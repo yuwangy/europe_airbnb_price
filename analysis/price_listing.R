@@ -15,7 +15,7 @@ str(amsterdam_weekdays) # Structure of the data frame
 # 1. Average price per room type
 avg_price <- amsterdam_weekdays %>%
   group_by(room_type) %>%
-  summarize(avg_price = mean(price))
+  summarize(avg_price = mean(realSum))
 
 # 2. Number of listings in each neighborhood
 neighborhood_counts <- amsterdam_weekdays %>%
