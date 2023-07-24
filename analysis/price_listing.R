@@ -19,27 +19,31 @@ avg_price <- amsterdam_weekdays %>%
 
 # 2. Number of listings in each neighborhood
 neighborhood_counts <- amsterdam_weekdays %>%
-  group_by(neighbourhood) %>%
+  group_by(person_capacity) %>%
   summarize(listing_count = n()) %>%
   arrange(desc(listing_count))
 
 # 3. Hosts with the highest number of listings
 top_hosts <- amsterdam_weekdays %>%
-  group_by(host_id, host_name) %>%
+  group_by(host_is_superhost) %>%
   summarize(listing_count = n()) %>%
   arrange(desc(listing_count)) %>%
   head(10)
 
 # 4. Average reviews per month by neighborhood group
 avg_reviews <- amsterdam_weekdays %>%
-  group_by(neighbourhood_group) %>%
-  summarize(avg_reviews_per_month = mean(reviews_per_month))
+  group_by(bedrooms) %>%
+  summarize(avg_reviews_per_month = mean(bedrooms))
 
 # Print the results
 print(avg_price)
 print(neighborhood_counts)
 print(top_hosts)
 print(avg_reviews)
+
+
+
+
 
 
 
